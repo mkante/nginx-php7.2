@@ -33,7 +33,8 @@ COPY supervisord.conf /etc/supervisord.conf
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY nginx/www/index.php /var/www/html/
+COPY start.sh start.sh
 
 RUN mkdir /run/php
 
-CMD ["supervisord", "-n", "-c", "/etc/supervisord.conf"]
+CMD ["/start.sh"]
