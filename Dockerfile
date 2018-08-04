@@ -13,7 +13,7 @@ COPY apt/keys/ondrej-php.key /tmp/ondrej-php.key
 RUN apt-key add /tmp/nginx_signing.key && \
 	apt-key add /tmp/ondrej-php.key && \
 	apt update && \
-	apt install -y supervisor nginx \
+	apt install -y vim supervisor nginx \
 	php7.2 \
   php7.2-zip \
   php7.2-curl \
