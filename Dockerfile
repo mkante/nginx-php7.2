@@ -1,5 +1,9 @@
 FROM ubuntu:16.04
 
+LABEL author="mkante"
+LABEL description="Container with Nginx 1.14 and php 7.2.8"
+LABEL name="nginx-php7.2.8"
+
 COPY apt/ondrej-php-xenial.list /etc/apt/sources.list.d/ondrej-php-xenial.list
 COPY apt/nginx.list /etc/apt/sources.list.d/nginx.list
 
@@ -22,11 +26,11 @@ RUN apt-key add /tmp/nginx_signing.key && \
   php7.2-xml \
   php7.2-bcmath \
   php7.2-mbstring \
-  php7.2-opcache \
   php7.2-soap
 
 COPY fpm/* /etc/php/7.2/fpm/
 COPY supervisord.conf /etc/supervisord.conf
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY nginx/www/index.php /var/www/html/
 
