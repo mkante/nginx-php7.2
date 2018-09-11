@@ -8,7 +8,7 @@ docker pull mkante/nginx-php7.2:latest
 
 Build the image
 ```bash
-git clone git@github.com:mkante/nginx-php7.2.git
+git clone git@github.com:mkante/nginx-php7.2.git master
 cd nginx-php7.2 
 docker build .
 ```
